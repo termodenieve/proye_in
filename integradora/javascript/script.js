@@ -1,70 +1,48 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const loginLink = document.getElementById('login-link');
-    const registerLink = document.getElementById('register-link');
-    const logoutLink = document.getElementById('logout-link');
-    const recoverLink = document.getElementById('recover-link');
+function showLoginForm() {
+    document.getElementById('login-form').style.display = 'block';
+    document.getElementById('register-form').style.display = 'none';
+    document.getElementById('recover-form').style.display = 'none';
+}
 
-    const loginModal = document.getElementById('login-modal');
-    const registerModal = document.getElementById('register-modal');
-    const recoverModal = document.getElementById('recover-modal');
+function showRegisterForm() {
+    document.getElementById('login-form').style.display = 'none';
+    document.getElementById('register-form').style.display = 'block';
+    document.getElementById('recover-form').style.display = 'none';
+}
 
-    const closeButtons = document.querySelectorAll('.close');
+function showRecoverForm() {
+    document.getElementById('login-form').style.display = 'none';
+    document.getElementById('register-form').style.display = 'none';
+    document.getElementById('recover-form').style.display = 'block';
+}
 
-    loginLink.addEventListener('click', () => {
-        loginModal.style.display = 'block';
-    });
+function login() {
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+    alert(`Iniciar sesión con correo: ${email}`);
+    // Aquí iría la lógica de autenticación
+}
 
-    registerLink.addEventListener('click', () => {
-        registerModal.style.display = 'block';
-    });
+function register() {
+    const email = document.getElementById('register-email').value;
+    const password = document.getElementById('register-password').value;
+    alert(`Registrarse con correo: ${email}`);
+    // Aquí iría la lógica de registro
+}
 
-    recoverLink.addEventListener('click', () => {
-        recoverModal.style.display = 'block';
-    });
+function recoverPassword() {
+    const email = document.getElementById('recover-email').value;
+    alert(`Recuperar contraseña para el correo: ${email}`);
+    // Aquí iría la lógica de recuperación de contraseña
+}
 
-    closeButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            loginModal.style.display = 'none';
-            registerModal.style.display = 'none';
-            recoverModal.style.display = 'none';
-        });
-    });
+function logout() {
+    alert('Cerrar sesión');
+    // Aquí iría la lógica de cierre de sesión
+}
 
-    window.addEventListener('click', (event) => {
-        if (event.target == loginModal) {
-            loginModal.style.display = 'none';
-        } else if (event.target == registerModal) {
-            registerModal.style.display = 'none';
-        } else if (event.target == recoverModal) {
-            recoverModal.style.display = 'none';
-        }
-    });
-
-    document.getElementById('login-form').addEventListener('submit', (event) => {
-        event.preventDefault();
-        // Aquí iría el código para iniciar sesión
-        loginModal.style.display = 'none';
-        logoutLink.style.display = 'block';
-        loginLink.style.display = 'none';
-        registerLink.style.display = 'none';
-    });
-
-    document.getElementById('register-form').addEventListener('submit', (event) => {
-        event.preventDefault();
-        // Aquí iría el código para registrar al usuario
-        registerModal.style.display = 'none';
-    });
-
-    document.getElementById('recover-form').addEventListener('submit', (event) => {
-        event.preventDefault();
-        // Aquí iría el código para recuperar la contraseña
-        recoverModal.style.display = 'none';
-    });
-
-    logoutLink.addEventListener('click', () => {
-        // Aquí iría el código para cerrar sesión
-        logoutLink.style.display = 'none';
-        loginLink.style.display = 'block';
-        registerLink.style.display = 'block';
-    });
-});
+function searchProducts() {
+    const searchQuery = document.getElementById('search').value;
+    alert(`Buscar productos con: ${searchQuery}`);
+    // Aquí iría la lógica de búsqueda de productos
+}
